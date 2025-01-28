@@ -9,7 +9,7 @@ function App() {
   //   console.log("Hello! I am an console box!");
   // }
   //hello
-  const myFunction1 = () => {
+  const myFunction = () => {
     console.log("Hello! I am an console box!");
   }
 
