@@ -3,18 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
+const MyComponent = () => {
+  return (
+    <div>
+      sos nu ne
+    </div>
+  );
+}
 
-  // function myFunction() {
-  //   console.log("Hello! I am an console box!");
-  // }
-  //hello
-  const myFunction = () => {
-    console.log("Hello! I am an console box!");
-  }
-
-  myFunction();
-
+const App = () => {
 
   const [count, setCount] = useState(0)
 
@@ -29,6 +26,7 @@ function App() {
         </a>
       </div>
       <h1>hello word reactjs 1</h1>
+      <MyComponent />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
