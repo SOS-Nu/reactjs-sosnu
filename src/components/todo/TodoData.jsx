@@ -16,6 +16,9 @@ const TodoData = (props) => {
             <div> my name is {name}</div>
             <div> learning react</div>
             <div> watching yotube</div>
+            <div>
+                {JSON.stringify(props.todoList)}
+            </div>
         </div>
     )
 }
