@@ -12,7 +12,7 @@ const TodoNew = (props) => {
     // addNewTodo("sosnu");
 
     const handleClick = () => {
-        console.log(">>>valueInput", valueInput);
+        addNewTodo(valueInput);
     }
     const handleOnChange = (name) => {
         setvalueInput(name);
