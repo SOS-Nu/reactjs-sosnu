@@ -10,14 +10,13 @@ const TodoData = (props) => {
     // const data = props.data;
 
     //props ia an object that contains all the properties that are passed to a component
-    console.log("check props", props)
     return (
 
         <div className="todo-data">
             {todoList.map((item, index) => {
                 console.log("check item", item, index)
                 return (
-                    <div className="todo-item">
+                    <div className={`todo-item ${index}`} key={item.id}>
                         <div >
                             {item.name}
                         </div>
