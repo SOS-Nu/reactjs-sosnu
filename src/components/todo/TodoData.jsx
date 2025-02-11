@@ -2,9 +2,13 @@
 
 const TodoData = (props) => {
 
-    const { todoList } = props;
-    //destructuring props
+    const { todoList, deleteTodo } = props;
 
+    //id tu đặt
+    const handleClick = (id) => {
+        deleteTodo(id);
+    }
+    //destructuring props
     // const name = props.name;
     // const age = props.age;
     // const data = props.data;
@@ -14,17 +18,17 @@ const TodoData = (props) => {
 
         <div className="todo-data">
             {todoList.map((item, index) => {
-                console.log("check item", item, index)
                 return (
                     <div className={`todo-item ${index}`} key={item.id}>
                         <div >
                             {item.name}
                         </div>
-                        <button>delete</button>
+                        <button style={{ cursor: "pointer" }}
+                            onClick={() => handleClick(item.id)}>delete</button>
                     </div>
                 )
             })}
-        </div>
+        </div >
     )
 }
 
