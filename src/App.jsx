@@ -4,6 +4,8 @@ import TodoData from "./components/todo/TodoData"
 import TodoNew from "./components/todo/TodoNew"
 import reactLogo from "./assets/react.svg"
 import { useState } from "react"
+import Header from "./components/layout/header"
+import Footer from "./components/layout/footer"
 
 
 const App = () => {
@@ -37,41 +39,47 @@ const App = () => {
 
 
   return (
-    <div className="todo-container">
-      <div className="todo-title">Todo list </div>
-      <TodoNew
-        addNewTodo={addNewTodo}
-      />
 
-
-      {(todoList.length === 0)
-        ? <div className="todo-image">
-          <img src={reactLogo} className="logo" />
-        </div>
-        : <TodoData
-          todoList={todoList}
-          deleteTodo={deleteTodo}
+    <>
+      <Header />
+      <div className="todo-container">
+        <div className="todo-title">Todo list </div>
+        <TodoNew
+          addNewTodo={addNewTodo}
         />
-      }
+
+
+        {(todoList.length === 0)
+          ? <div className="todo-image">
+            <img src={reactLogo} className="logo" />
+          </div>
+          : <TodoData
+            todoList={todoList}
+            deleteTodo={deleteTodo}
+          />
+        }
 
 
 
-      {/* 
-      {(todoList.length === 0) ? "" : <TodoData
-        todoList={todoList}
-      />}
+        {/* 
+    {(todoList.length === 0) ? "" : <TodoData
+      todoList={todoList}
+    />}
 
 
-      {todoList.length === 0 && <div className="todo-image">
-        <img src={reactLogo} className="logo react" />
-      </div>} */}
+    {todoList.length === 0 && <div className="todo-image">
+      <img src={reactLogo} className="logo react" />
+    </div>} */}
 
-      {/* {todoList.length === 0 ? <div className="todo-image">
-        <img src={reactLogo} className="logo react" />
-      </div> : ""} */}
+        {/* {todoList.length === 0 ? <div className="todo-image">
+      <img src={reactLogo} className="logo react" />
+    </div> : ""} */}
 
 
-    </div>
+      </div>
+      <Footer />
+
+    </>
   )
 }
 
