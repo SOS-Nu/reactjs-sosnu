@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import LoginPage from './pages/login.jsx';
 import RegisterPage from './pages/register.jsx';
-import UserPage from './pages/users.jsx';
+import UserPage from './pages/user.jsx';
 import BookPage from './pages/book.jsx';
 import './styles/global.css'
 import TodoApp from './components/todo/TodoApp.jsx';
