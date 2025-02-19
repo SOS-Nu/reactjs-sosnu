@@ -16,8 +16,13 @@ const UserForm = () => {
             notification.success({
                 message: "Create user",
                 description: "create user success"
-            });
-        } //res.data.data = null 
+            })
+        } else {
+            notification.error({
+                message: "create user faill",
+                description: JSON.stringify(res.message)
+            })
+        }
 
         console.log("check res ", res.data);
     }
