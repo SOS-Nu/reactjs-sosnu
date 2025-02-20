@@ -24,14 +24,14 @@ const UserForm = (props) => {
         const res = await createUserAPI(fullName, email, password, phone);
         if (res.data) {
             notification.success({
-                message: "Create user",
-                description: "create user success"
+                message: "Create users",
+                description: "create users success"
             })
             resetAndCloseModal();
             await loadUser();
         } else {
             notification.error({
-                message: "create user faill",
+                message: "create users faill",
                 description: JSON.stringify(res.message)
             })
         }
@@ -48,7 +48,7 @@ const UserForm = (props) => {
     }
 
     return (
-        <div className="user-form" style={{ margin: '10px' }}>
+        <div className="users-form" style={{ margin: '10px' }}>
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <h3>Table Users</h3>
@@ -56,7 +56,7 @@ const UserForm = (props) => {
                     onClick={() => { setIsModalOpen(true); }}
                     type="primary">Create User</Button>
             </div>
-            <Modal title="Create Table"
+            <Modal title="Create User"
                 open={isModalOpen}
                 onOk={() => { handleOnSubmitBtn(); }}
                 onCancel={() => resetAndCloseModal()}
