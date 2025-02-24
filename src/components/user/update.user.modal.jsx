@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Input, Modal, notification } from "antd";
-import { createUserAPI } from "../../services/api.service";
+import { createUserAPI, updateUserAPI } from "../../services/api.service";
 
 
 const UpdateUserModal = (props) => {
@@ -9,6 +9,8 @@ const UpdateUserModal = (props) => {
 
     const [fullName, setFullName] = useState("");
     const [phone, setPhone] = useState("");
+    const { loadUser } = props;
+
 
     const { isModalUpdateOpen, setIsModalUpdateOpen, dataUpdate, setDataUpdate } = props;
 
@@ -27,17 +29,19 @@ const UpdateUserModal = (props) => {
     const handleOnSubmitBtn = async () => {
 
 
-        const res = await createUserAPI(fullName, email, password, phone);
+        const res = await updateUserAPI(id, fullName, phone);
         if (res.data) {
             notification.success({
-                message: "Create users",
-                description: "create users success"
+                message: "Update User",
+                description: "Update User success"
             })
             resetAndCloseModal();
+            await loadUser();
+
             // await loadUser();
         } else {
             notification.error({
-                message: "create users faill",
+                message: "update users faill",
                 description: JSON.stringify(res.message)
             })
         }
@@ -59,7 +63,7 @@ const UpdateUserModal = (props) => {
     return (
         <Modal title="Update User"
             open={isModalUpdateOpen}
-            onOk={() => { handleOnSubmitBtn(); }}
+            onOk={() => { handleOnSubmitBtn() }}
             onCancel={() => {
                 resetAndCloseModal();
             }}
@@ -83,6 +87,9 @@ const UpdateUserModal = (props) => {
                     <Input value={phone}
                         onChange={(event) => { setPhone(event.target.value) }} />
                 </div>
+
+
+
 
             </div>
         </Modal>
