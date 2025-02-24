@@ -5,10 +5,12 @@ const ViewUserDetail = (props) => {
 
     return (
         <>
-            <Drawer title="Chi tiết user" onClose={() => {
-                setDataDetail(null);
-                setIsDetailOpen(false);
-            }}
+            <Drawer
+                width={"40vw"}
+                title="Chi tiết user" onClose={() => {
+                    setDataDetail(null);
+                    setIsDetailOpen(false);
+                }}
                 open={isDetailOpen}
             >
                 {
@@ -22,13 +24,36 @@ const ViewUserDetail = (props) => {
                         <br />
 
                         <p>PhoneNumber: {dataDetail.phone} </p>
+                        <p>Avartar:</p>
+                        <br />
+                        <div>
+                            <img
+
+                                height={150} width={250}
+                                src={`${import.meta.env.VITE_BACKEND_URL}/images/avatar/${dataDetail.avatar}`} alt="" />
+                        </div>
+
+                        <div>
+                            <label htmlFor="btnUpload" style={{
+                                cursor: 'pointer',
+                                backgroundColor: 'blue',
+                                color: 'white',
+                                padding: '10px',
+                                borderRadius: '5px'
+                            }}>
+                                Update Avatar
+                            </label>
+                            <input type="file" hidden id='btnUpload' />
+
+                        </div>
+                        {/* <Button type='primary'>Update Avatar</Button> */}
                     </>
                         :
                         <>
                             <p> không có dữ liệu</p>
                         </>
                 }
-            </Drawer>
+            </Drawer >
         </>
     );
 };
