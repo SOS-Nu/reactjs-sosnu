@@ -22,7 +22,6 @@ const ViewUserDetail = (props) => {
             setSelectedFile(file)
             setPreview(URL.createObjectURL(file))
         }
-        console.log(preview);
     }
 
     const handleUpdateUserAvatar = async () => {
@@ -48,7 +47,6 @@ const ViewUserDetail = (props) => {
                     description: "upload avatar fail"
                 })
             }
-            console.log("aloalo");
         } else {
             notification.error({
                 message: "upload avatar fail",

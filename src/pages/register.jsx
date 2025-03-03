@@ -10,9 +10,7 @@ const RegisterPage = () => {
 
 
     const onFinish = async (values) => {
-        console.log(values);
         const res = await registerUserAPI(values.fullName, values.email, values.password, values.phone);
-        console.log(res);
         if (res.data) {
             notification.success({
                 message: "Register complete",

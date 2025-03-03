@@ -46,7 +46,6 @@ const UpdateUserModal = (props) => {
             })
         }
 
-        console.log("check res ", res.data);
     }
 
     const resetAndCloseModal = () => {

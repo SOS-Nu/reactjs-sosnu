@@ -36,7 +36,6 @@ const UserForm = (props) => {
             })
         }
 
-        console.log("check res ", res.data);
     }
 
     const resetAndCloseModal = () => {
