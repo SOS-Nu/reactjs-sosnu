@@ -2,6 +2,9 @@ import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Table } from "antd";
 import { useEffect, useState } from "react";
 import { fetchAllBookAPI } from "../../services/api.service";
+import BookDetail from "./book.detail";
+import CreateBookControl from "./create.book.control";
+import CreateBookUncontrol from "./create.book.uncontrol";
 
 const BookTable = () => {
 
@@ -15,6 +18,8 @@ const BookTable = () => {
 
     const [dataUpdate, setDataUpdate] = useState(null);
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
+
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
 
 
     useEffect(() => {
@@ -138,7 +143,7 @@ const BookTable = () => {
                 justifyContent: "space-between"
             }}>
                 <h3>Table Book</h3>
-                <Button type="primary">Create Book</Button>
+                <Button type="primary" onClick={() => setIsCreateOpen(true)}>Create Book</Button>
             </div>
 
             <Table
@@ -156,6 +161,24 @@ const BookTable = () => {
                 }
                 onChange={onChange}
 
+            />
+            <BookDetail
+                dataDetail={dataDetail}
+                setDataDetail={setDataDetail}
+                isDetailOpen={isDetailOpen}
+                setIsDetailOpen={setIsDetailOpen}
+            />
+
+            {/* <CreateBookControl
+                isCreateOpen={isCreateOpen}
+                setIsCreateOpen={setIsCreateOpen}
+                loadBook={loadBook}
+            /> */}
+
+            <CreateBookUncontrol
+                isCreateOpen={isCreateOpen}
+                setIsCreateOpen={setIsCreateOpen}
+                loadBook={loadBook}
             />
         </>
     )
