@@ -5,6 +5,7 @@ import { fetchAllBookAPI } from "../../services/api.service";
 import BookDetail from "./book.detail";
 import CreateBookControl from "./create.book.control";
 import CreateBookUncontrol from "./create.book.uncontrol";
+import UpdateBookControl from "./update.book.control";
 
 const BookTable = () => {
 
@@ -20,7 +21,6 @@ const BookTable = () => {
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
 
     const [isCreateOpen, setIsCreateOpen] = useState(false);
-
 
     useEffect(() => {
         loadBook();
@@ -138,7 +138,7 @@ const BookTable = () => {
     return (
         <>
             <div style={{
-                marginTop: "10px",
+                margin: "10px 0",
                 display: "flex",
                 justifyContent: "space-between"
             }}>
@@ -160,8 +160,8 @@ const BookTable = () => {
                     }
                 }
                 onChange={onChange}
-
             />
+
             <BookDetail
                 dataDetail={dataDetail}
                 setDataDetail={setDataDetail}
@@ -174,10 +174,17 @@ const BookTable = () => {
                 setIsCreateOpen={setIsCreateOpen}
                 loadBook={loadBook}
             /> */}
-
             <CreateBookUncontrol
                 isCreateOpen={isCreateOpen}
                 setIsCreateOpen={setIsCreateOpen}
+                loadBook={loadBook}
+            />
+
+            <UpdateBookControl
+                dataUpdate={dataUpdate}
+                setDataUpdate={setDataUpdate}
+                isModalUpdateOpen={isModalUpdateOpen}
+                setIsModalUpdateOpen={setIsModalUpdateOpen}
                 loadBook={loadBook}
             />
         </>
